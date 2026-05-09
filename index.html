@@ -3,7 +3,6 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    
     <style>
         body { font-family: 'Comic Sans MS', 'Comic Sans', cursive; text-align: center; margin-top: 50px; }
         #tiempo { font-size: 3rem; color: blue; }
@@ -12,48 +11,55 @@
 </head>
 <body>
 
-    
-    <div id="tiempo">0</div>
+    <div id="tiempo">00:00:00</div>
     <p id="record">Mejor Récord: --</p> 
 
-    <button onclick="detenerYGuardar()">Detener y Guardar Récord</button> <img src="./cd.gif"> 
-    <button onclick="reiniciarPagina()">Reiniciar Página</button> <img src="./windows.gif">
+    <button onclick="detenerYGuardar()">Detener y Guardar Récord</button>
+    <button onclick="reiniciarPagina()">Reiniciar Página</button>
 
     <script>
-        let segundos = 0;
+        let segundosTotales = 0;
         const displayTiempo = document.getElementById('tiempo');
         const displayRecord = document.getElementById('record');
 
-        // 1. Iniciar el cronómetro automáticamente
+        // Función para convertir segundos a formato 00:00:00
+        function formatearTiempo(segundos) {
+            const h = Math.floor(segundos / 3600).toString().padStart(2, '0');
+            const m = Math.floor((segundos % 3600) / 60).toString().padStart(2, '0');
+            const s = (segundos % 60).toString().padStart(2, '0');
+            return `${h}:${m}:${s}`;
+        }
+
+        // 1. Iniciar el cronómetro
         const intervalo = setInterval(() => {
-            segundos++;
-            displayTiempo.innerText = segundos;
+            segundosTotales++;
+            displayTiempo.innerText = formatearTiempo(segundosTotales);
         }, 1000);
 
-        // 2. Al cargar la página, mostrar el récord guardado en la memoria del navegador
+        // 2. Al cargar la página
         window.onload = function() {
             const guardado = localStorage.getItem('miRecord');
             if (guardado) {
-                displayRecord.innerText = "Mejor Récord: " + guardado + " segundos";
+                displayRecord.innerText = "Mejor Récord: " + formatearTiempo(parseInt(guardado));
             }
         };
 
-        // 3. Función para guardar si el tiempo actual es mejor (más bajo)
+        // 3. Detener y Guardar
         function detenerYGuardar() {
             clearInterval(intervalo);
             let recordActual = localStorage.getItem('miRecord');
 
-            // Si no hay récord o el tiempo actual es menor al récord viejo...
-            if (recordActual === null || segundos < parseInt(recordActual)) {
-                localStorage.setItem('miRecord', segundos);
-                displayRecord.innerText = "Mejor Récord: " + segundos + " segundos";
-                
+            // Comparamos los segundos totales para ver cuál es más bajo
+            if (recordActual === null || segundosTotales < parseInt(recordActual)) {
+                localStorage.setItem('miRecord', segundosTotales);
+                displayRecord.innerText = "Mejor Récord: " + formatearTiempo(segundosTotales);
+                alert("¡Nuevo Récord!");
             } else {
-                a
+                alert("No superaste el récord anterior.");
             }
         }
 
-        // 4. Comando para reiniciar la página
+        // 4. Reiniciar
         function reiniciarPagina() {
             location.reload();
         }
