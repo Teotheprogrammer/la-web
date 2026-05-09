@@ -53,9 +53,9 @@
             if (recordActual === null || segundosTotales < parseInt(recordActual)) {
                 localStorage.setItem('miRecord', segundosTotales);
                 displayRecord.innerText = "Mejor Récord: " + formatearTiempo(segundosTotales);
-                alert("¡Nuevo Récord!");
+                
             } else {
-                alert("No superaste el récord anterior.");
+                
             }
         }
 
