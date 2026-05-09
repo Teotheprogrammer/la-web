@@ -132,37 +132,7 @@
 
     <div class="container">
         <h1>¿Cuánto tiempo puedes estar aquí?</h1>
-        <div id="contador">00:00:00</div>
-    </div>
 
-    <script>
-        let segundos = 0;
-        let minutos = 0;
-        let horas = 0;
-
-        function actualizarContador() {
-            segundos++;
-            if (segundos >= 60) {
-                segundos = 0;
-                minutos++;
-                if (minutos >= 60) {
-                    minutos = 0;
-                    horas++;
-                }
-            }
-
-            const h = horas < 10 ? "0" + horas : horas;
-            const m = minutos < 10 ? "0" + minutos : minutos;
-            const s = segundos < 10 ? "0" + segundos : segundos;
-
-            document.getElementById("contador").innerText = h + ":" + m + ":" + s;
-        }
-
-        setInterval(actualizarContador, 1000);
-    </script>
-
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="es">
 <head>
