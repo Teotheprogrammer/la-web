@@ -1,4 +1,22 @@
 <html>
+<style>
+  html, body {
+    /* Esto permite que la web crezca según el contenido */
+    height: auto; 
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    /* Evita que se oculte lo que sobra */
+    overflow-y: visible; 
+  }
+
+  .contenedor-principal {
+    /* Si usas un div para envolver todo, usa esto */
+    width: 100%;
+    display: block;
+    overflow: hidden; /* Esto ayuda a que el padre "abrace" a los hijos */
+  }
+</style>
 <!DOCTYPE html>
 <html lang="es">
 <head>
