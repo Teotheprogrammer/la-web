@@ -1,5 +1,49 @@
 <html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Página con Contador</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .contador-caja { border: 2px solid #333; padding: 20px; display: inline-block; border-radius: 10px; }
+        #numero-visitas { font-size: 2em; color: #ff5722; font-weight: bold; }
+    </style>
+</head>
+<body>
 
+    <div class="contador-caja">
+        <h2>Visitas a este sitio:</h2>
+        <div id="numero-visitas">0</div>
+    </div>
+
+    <script>
+        // Función para manejar el conteo
+        function actualizarContador() {
+            // 1. Intentar obtener el valor guardado en el navegador
+            let visitas = localStorage.getItem('contadorVisitas');
+
+            if (visitas) {
+                // 2. Si existe, lo convertimos a número y sumamos 1
+                visitas = parseInt(visitas) + 1;
+            } else {
+                // 3. Si no existe (primera vez), empezamos en 1
+                visitas = 1;
+            }
+
+            // 4. Guardamos el nuevo valor en el navegador
+            localStorage.setItem('contadorVisitas', visitas);
+
+            // 5. Lo mostramos en la pantalla
+            document.getElementById('numero-visitas').innerText = visitas;
+        }
+
+        // Ejecutar la función al cargar la página
+        actualizarContador();
+    </script>
+
+</body>
+</html>
 
 <!DOCTYPE html>
 <html lang="es">
