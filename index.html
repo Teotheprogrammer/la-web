@@ -123,28 +123,40 @@
 </head>
 <body>
 <style>
-    .geocities-box {
-        background-color: #000;
-        border: 4px ridge #888; /* Efecto 3D antiguo */
-        padding: 10px;
+    .computadora-vieja {
+        background-color: #222;
+        border: 4px outset #555;
+        padding: 15px;
         display: inline-block;
+        box-shadow: 10px 10px 0px #000;
         text-align: center;
-        color: #00FF00; /* Verde fósforo */
-        font-family: "Courier New", monospace;
     }
-    .retro-counter {
-        filter: invert(1) hue-rotate(90deg) brightness(1.5);
-        margin-top: 5px;
+    .pantalla {
+        background-color: #000;
+        border: 2px inset #444;
+        padding: 10px;
+        color: #0f0; /* Verde Matrix */
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+    }
+    .retro-img {
+        /* Filtro para que los números de Google se vean verde neón */
+        filter: invert(1) sepia(1) saturate(5) hue-rotate(70deg);
+        margin-top: 10px;
+        image-rendering: pixelated;
     }
 </style>
 
-<div class="geocities-box">
-    <div style="font-size: 12px; font-weight: bold; margin-bottom: 5px;">
-        VISITANTE NRO:
+<div class="computadora-vieja">
+    <div class="pantalla">
+        <div style="font-size: 12px; letter-spacing: 2px;">SYSTEM STATUS: ONLINE</div>
+        <div style="font-size: 10px; margin-top: 5px;">VISITANTES TOTALES:</div>
+        
+        <img class="retro-img" 
+             src="https://counter.tinybird.co/api/v1/counter?id=teotheprogrammer&color=ffffff" 
+             alt="Cargando datos...">
+             
     </div>
-    <img class="retro-counter" 
-         src="https://profile-counter.glitch.me/teotheprogrammer/count.svg" 
-         alt="Contador">
 </div>
 </body>
 </html>
