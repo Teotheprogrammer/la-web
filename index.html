@@ -122,42 +122,27 @@
     </style>
 </head>
 <body>
-    <style>
-    .geocities-counter {
+<style>
+    .old-school-counter {
         background-color: #000;
-        border: 3px double #ffffff;
-        color: #ffff00; /* Amarillo clásico */
-        font-family: "Courier New", Courier, monospace;
+        border: 2px outset #ffffff;
+        padding: 5px;
         display: inline-block;
-        padding: 5px 15px;
-        text-align: center;
-        box-shadow: 5px 5px 0px #888888;
-        margin: 20px;
+        font-family: "Courier New", monospace;
+        color: #ffff00;
     }
-
-    .geocities-counter span {
-        font-weight: bold;
-        font-size: 1.2em;
-        letter-spacing: 2px;
-    }
-
-    .visitor-text {
-        color: #00ff00; /* Verde neón */
-        font-size: 0.8em;
-        text-transform: uppercase;
+    .old-school-counter img {
         display: block;
-        margin-bottom: 5px;
+        margin: 5px auto;
+        /* Esto hace que el badge moderno parezca un contador viejo */
+        filter: invert(1) grayscale(1) brightness(1.5);
     }
 </style>
 
-<div class="geocities-counter">
-    <span class="visitor-text">Eres el visitante nro:</span>
-    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fteotheprogrammer.github.io%2Fla-web&count_bg=%2300000000&title_bg=%2300000000&icon=&icon_color=%23E7E7E7&title=%20&edge_flat=true" 
-         style="filter: invert(1) hue-rotate(180deg); vertical-align: middle;" 
-         alt="Contador">
-    <p><marquee scrollamount="5" style="color: red; font-family: Comic Sans MS;">¡Gracias por visitar mi sitio! No olvides firmar el libro de visitas...</marquee></p>
+<div class="old-school-counter">
+    <small>VISITANTE NÚMERO:</small>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fteotheprogrammer.github.io%2Fla-web&count_bg=%23000000&title_bg=%23000000&title=VISITS" alt="Hits">
 </div>
-
 </body>
 </html>
 
