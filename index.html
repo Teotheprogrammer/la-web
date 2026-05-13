@@ -17,7 +17,20 @@
     </style>
 </head>
 <body>
+<div id="contador-visitas">
+    Visitas: <span id="count">0</span>
+</div>
 
+<script>
+    function cb(response) {
+        document.getElementById('count').innerText = response.value;
+    }
+
+    // Sustituye 'teotheprogrammer' por una clave única para tu web
+    const script = document.createElement('script');
+    script.src = 'https://api.countapi.xyz/hit/teotheprogrammer.github.io/visitas?callback=cb';
+    document.head.appendChild(script);
+</script>
     <audio id="miMusica" src="Star Fox - Corneria.mp3" loop hidden></audio>
 
     <script>
